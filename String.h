@@ -13,9 +13,9 @@ namespace HomeMadeString
 	
 	public:
 		// Default constructor (without arguments):
-
+String():elementNum(0),pData(NULL) {}
 		// Copy constructor:
-
+String(const String& orig);
 
 		// Conversion constructor that expects a char* with '\0' at the end
 		// This constructor is responsible for the conversion char*-> String
@@ -30,16 +30,16 @@ namespace HomeMadeString
 
 		// Copies the string to the buffer and terminates it with '\0' (string terminating character)
 		// Memory allocation for the buffer is to be done by a caller
-		void getStr(char* pBuff);
+		void getStr(char* pBuff) const;
 		
 		// Returns with the string lengtgit@github.com:juditacs/bop2_lab06.gith
-		int getLength() { return elementNum; }
+		int getLength() const { return elementNum; }
 
 		// Writes the string to the given stream		
-		void print(std::ostream& os);
+		void print(std::ostream& os) const;
 
 		// Returns with the character at the given position, othewise 0
-		char getChar(int pos);
+		char getChar(int pos) ;
 
 		// --- Static Class Members. They work with two strings passed as parameters. ---
 		
@@ -47,10 +47,10 @@ namespace HomeMadeString
 		static String concatenate(String string1, String string2);
 
 		// Returns true if the two strings are equal
-		static bool isEqual(String string1, String string2);
+		static bool isEqual(const String& string1,const String& string2);
 
 		// Copies string2 to string1
-		static void copy(String& string1, String string2);
+		static void copy(String& string1, const String& string2);
 	};
 }
 #endif /* STRING_H */
